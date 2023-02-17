@@ -4,7 +4,7 @@
 ## How to setup
 
 ```
-git clone https://github.com/ensdomains/reverse-records
+git clone https://github.com/Fantom-Domains/reverse-records
 cd reverse-records
 cp env.example .env // Add your mnemonic, infura project id, and etherscan key
 yarn
