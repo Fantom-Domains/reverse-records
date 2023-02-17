@@ -1,19 +1,21 @@
-pragma solidity ^0.7.4;pragma experimental ABIEncoderV2;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
 import "./Namehash.sol";
-import '@ensdomains/ens/contracts/ENS.sol';
-import '@ensdomains/ens/contracts/ReverseRegistrar.sol';
-import '@ensdomains/resolver/contracts/Resolver.sol';
+import './imported/FNS.sol';
+import './imported/ReverseRegistrar.sol';
+import './imported/Resolver.sol';
 
 contract ReverseRecords {
-    ENS ens;
+    FNS fns;
     ReverseRegistrar registrar;
+    // TODO change ADDR_REVERSE_NODE
     bytes32 private constant ADDR_REVERSE_NODE = 0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2;
 
     /**
      * The `constructor` takes ENS registry address
      */
-    constructor(ENS _ens) {
-        ens = _ens;
+    constructor(FNS _fns) {
+        fns = _fns;
         registrar = ReverseRegistrar(ens.owner(ADDR_REVERSE_NODE));
     }
 
@@ -23,11 +25,11 @@ contract ReverseRecords {
     function getNames(address[] calldata addresses) external view returns (string[] memory r) {
         r = new string[](addresses.length);
         for(uint i = 0; i < addresses.length; i++) {
-            bytes32 node = node(addresses[i]);
-            address resolverAddress = ens.resolver(node);
+            bytes32 nodeBytes = node(addresses[i]);
+            address resolverAddress = ens.resolver(nodeBytes);
             if(resolverAddress != address(0x0)){
                 Resolver resolver = Resolver(resolverAddress);
-                string memory name = resolver.name(node);
+                string memory name = resolver.name(nodeBytes);
                 if(bytes(name).length == 0 ){
                     continue;
                 }

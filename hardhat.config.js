@@ -5,6 +5,7 @@ require("@nomiclabs/hardhat-etherscan");
 const dotenv = require("dotenv")
 dotenv.config()
 
+// TODO check contracts
 const CONTRACTS = {
   'ropsten': '0x5bBFe410e18DCcaebbf5fD7A00844d4255615258',
   'rinkeby': '0x196eC7109e127A353B709a20da25052617295F6f',
@@ -32,6 +33,12 @@ module.exports = {
       url: "http://127.0.0.1:8545"
     },
     hardhat: {
+    },
+    fantom:{
+      url: `https://rpc.fantom.network`,
+      chainId: 250,
+      gasPrice: 50000000000, // 50 gwei
+      accounts: {mnemonic: MNEMONIC}
     },
     ropsten: {
       url: `https://ropsten.infura.io/v3/${INFURA_ID}`,
@@ -65,7 +72,10 @@ module.exports = {
     compilers: [
       {
         version: "0.7.4"
-      }
+      },
+      {
+        version: "0.8.17"
+      },
     ]
   }
 }

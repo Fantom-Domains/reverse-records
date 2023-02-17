@@ -4,6 +4,8 @@
 // When running the script with `hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
+
+// TODO change REGISTRY_ADDRESS (ENSRegistryWithFallback)
 const REGISTRY_ADDRESS = '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'
 async function main(env) {
   const ReverseRecords = await hre.ethers.getContractFactory("ReverseRecords");
