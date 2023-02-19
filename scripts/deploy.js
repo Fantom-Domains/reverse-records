@@ -6,7 +6,7 @@
 const hre = require("hardhat");
 
 // TODO change REGISTRY_ADDRESS (ENSRegistryWithFallback)
-const REGISTRY_ADDRESS = '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e'
+const REGISTRY_ADDRESS = '0xA6770E2036feA13045Aec56bEF7e85f45938E428'
 async function main(env) {
   const ReverseRecords = await hre.ethers.getContractFactory("ReverseRecords");
   reverseRecords = await ReverseRecords.deploy(REGISTRY_ADDRESS);
