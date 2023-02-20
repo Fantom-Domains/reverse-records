@@ -8,11 +8,12 @@ import './imported/Resolver.sol';
 contract ReverseRecords {
     FNS fns;
     ReverseRegistrar registrar;
-    // TODO change ADDR_REVERSE_NODE
-    bytes32 private constant ADDR_REVERSE_NODE = 0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2;
+
+	// addr.reverse to hash
+    bytes32 private constant ADDR_REVERSE_NODE = 0x91d1777781884d03a6757a803996e38de2a42967fb37eeaca72729271025a9e2; 
 
     /**
-     * The `constructor` takes ENS registry address
+     * The `constructor` takes FNS registry address
      */
     constructor(FNS _fns) {
         fns = _fns;
