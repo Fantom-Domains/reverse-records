@@ -7,16 +7,13 @@ dotenv.config()
 
 // TODO check contracts
 const CONTRACTS = {
-  'ropsten': '0x5bBFe410e18DCcaebbf5fD7A00844d4255615258',
-  'rinkeby': '0x196eC7109e127A353B709a20da25052617295F6f',
-  'goerli': '0x333Fc8f550043f239a2CF79aEd5e9cF4A20Eb41e',
-  'mainnet': '0x3671aE578E63FdF66ad4F3E12CC0c0d71Ac7510C'
+  'fantom': '0x3671aE578E63FdF66ad4F3E12CC0c0d71Ac7510C'
 }
 
 const {
   MNEMONIC = '',
   INFURA_ID = '',
-  ETHERSCANKEY = ''
+  ETHERSCANKEY = '',
 } = process.env
 
 task("names", "query reverse records")
@@ -37,6 +34,12 @@ module.exports = {
     fantom:{
       url: `https://rpc.fantom.network`,
       chainId: 250,
+      gasPrice: 50000000000, // 50 gwei
+      accounts: {mnemonic: MNEMONIC}
+    },
+    fantomTestnet:{
+      url: `https://rpc.testnet.fantom.network`,
+      chainId: 4002,
       gasPrice: 50000000000, // 50 gwei
       accounts: {mnemonic: MNEMONIC}
     },

@@ -1,5 +1,6 @@
 const { expect } = require("chai");
 const namehash = require('eth-ens-namehash');
+const {ethers} = require("hardhat");
 
 function sha3(name){
   return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(name))
@@ -12,9 +13,9 @@ async function assertReverseRecord(ens, address){
     reverseResolverAddress = await ens.resolver(namehash.hash(reverseNode))
     reverseResolver = await ethers.getContractAt('PublicResolver', reverseResolverAddress)
     reverseRecord = await reverseResolver.name(namehash.hash(reverseNode))
-    forwardResolverAddress = await ens.resolver(namehash.hash(reverseRecord))  
+    forwardResolverAddress = await ens.resolver(namehash.hash(reverseRecord))
     forwardResolver = await ethers.getContractAt('PublicResolver', forwardResolverAddress)
-    forwardAddress = await forwardResolver['addr(bytes32)'](namehash.hash(reverseRecord))  
+    forwardAddress = await forwardResolver['addr(bytes32)'](namehash.hash(reverseRecord))
   }catch(e){
     // console.log(e)
   }
@@ -37,7 +38,7 @@ describe("ReverseRecords contract", function() {
       await ens.setSubnodeOwner(namehash.hash(''), sha3('reverse'), owner.address);
     　await ens.setSubnodeOwner(namehash.hash('reverse'), sha3('addr'), registrar.address);
     })
-        
+
     it("Reverse record", async function() {
       // aAddr: correct
       // bAddr: no reverse record set

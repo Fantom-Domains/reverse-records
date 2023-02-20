@@ -37,7 +37,4 @@ const validNames = allnames.filter((n) => namehash.normalize(n) === n )
 
 ## Deployed contract address
 
-- Ropsten: [0x72c33B247e62d0f1927E8d325d0358b8f9971C68](https://ropsten.etherscan.io/address/0x72c33B247e62d0f1927E8d325d0358b8f9971C68)
-- Rinkeby: [0x196eC7109e127A353B709a20da25052617295F6f](https://rinkeby.etherscan.io/address/0x196eC7109e127A353B709a20da25052617295F6f)
-- Goerli: [0x333Fc8f550043f239a2CF79aEd5e9cF4A20Eb41e](https://goerli.etherscan.io/address/0x333Fc8f550043f239a2CF79aEd5e9cF4A20Eb41e)
-- Mainnet: [0x3671aE578E63FdF66ad4F3E12CC0c0d71Ac7510C](https://etherscan.io/address/0x3671aE578E63FdF66ad4F3E12CC0c0d71Ac7510C)
+- Mainnet: [0x613c3a985ed730c261cc4643ea1774b5c58e364e](https://ftmscan.com/address/0x613c3a985ed730c261cc4643ea1774b5c58e364e)
