@@ -13,7 +13,7 @@ yarn
 ## CLI
 
 ```
-yarn query:ropsten 0x123...,0x234...
+yarn query:fantom 0x123...,0x234...
 ```
 
 ## Smart contract API
@@ -38,3 +38,7 @@ const validNames = allnames.filter((n) => namehash.normalize(n) === n )
 ## Deployed contract address
 
 - Mainnet: [0x613c3a985ed730c261cc4643ea1774b5c58e364e](https://ftmscan.com/address/0x613c3a985ed730c261cc4643ea1774b5c58e364e)
+
+
+
+

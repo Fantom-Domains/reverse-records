@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity ^0.7.4;
 pragma experimental ABIEncoderV2;
 import "./Namehash.sol";
 import '@ensdomains/ens/contracts/ENS.sol';
@@ -7,7 +7,7 @@ import '@ensdomains/ens/contracts/ReverseRegistrar.sol';
 import '@ensdomains/resolver/contracts/Resolver.sol';
 
 contract ReverseRecords {
-    FNS fns;
+    ENS fns;
     ReverseRegistrar registrar;
 
 	// addr.reverse to hash
@@ -16,7 +16,7 @@ contract ReverseRecords {
     /**
      * The `constructor` takes FNS registry address
      */
-    constructor(FNS _fns) {
+    constructor(ENS _fns) {
         fns = _fns;
         registrar = ReverseRegistrar(fns.owner(ADDR_REVERSE_NODE));
     }

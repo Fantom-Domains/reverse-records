@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity ^0.7.4;
 
 library Strings {
     struct slice {
         uint _len;
         uint _ptr;
     }
-    
+
     /*
      * @dev Returns a slice containing the entire string.
      * @param self The string to make a slice from.
@@ -39,7 +39,7 @@ library Strings {
     function empty(slice memory self) internal pure returns (bool) {
         return self._len == 0;
     }
-    
+
     // Returns the memory address of the first byte after the last occurrence of
     // `needle` in `self`, or the address of `self` if not found.
     function rfindPtr(uint selflen, uint selfptr, uint needlelen, uint needleptr) private pure returns (uint) {
@@ -79,7 +79,7 @@ library Strings {
         }
         return selfptr;
     }
-    
+
     /*
      * @dev Splits the slice, setting `self` to everything before the last
      *      occurrence of `needle`, and `token` to everything after it. If
@@ -106,7 +106,7 @@ library Strings {
 
 library Namehash {
     using Strings for *;
-    
+
     function namehash(string memory name) pure internal returns(bytes32 hash) {
         hash = bytes32(0);
         Strings.slice memory nameslice = name.toSlice();

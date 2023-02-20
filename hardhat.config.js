@@ -7,7 +7,7 @@ dotenv.config()
 
 // TODO check contracts
 const CONTRACTS = {
-  'fantom': '0x3671aE578E63FdF66ad4F3E12CC0c0d71Ac7510C'
+  'fantom': '0x613c3a985ed730c261cc4643ea1774b5c58e364e'
 }
 
 const {
@@ -42,30 +42,6 @@ module.exports = {
       chainId: 4002,
       gasPrice: 50000000000, // 50 gwei
       accounts: {mnemonic: MNEMONIC}
-    },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${INFURA_ID}`,
-      chainId: 3,
-      gasPrice: 20000000000, // 20 gwei
-      accounts: {mnemonic: MNEMONIC}
-    },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${INFURA_ID}`,
-      chainId: 4,
-      gasPrice: 20000000000, // 20 gwei
-      accounts: {mnemonic: MNEMONIC}
-    },
-    goerli: {
-      url: `https://goerli.infura.io/v3/${INFURA_ID}`,
-      chainId: 5,
-      gasPrice: 20000000000, // 20 gwei
-      accounts: {mnemonic: MNEMONIC}
-    },
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${INFURA_ID}`,
-      chainId: 1,
-      gasPrice: 120000000000, // 120 gwei
-      accounts: {mnemonic: MNEMONIC}
     }
   },
   etherscan: {
@@ -75,6 +51,9 @@ module.exports = {
     compilers: [
       {
         version: "0.7.4"
+      },
+      {
+        version: "0.7.6"
       },
       {
         version: "0.8.17"
